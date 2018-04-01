@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ServiceMonitor
+metadata:
+  name: uaa-app
+  namespace: micro
+  labels:
+    team: micro
+spec:
+  selector:
+    matchLabels:
+      app: uaa
+  endpoints:
+  - port: web
+    path: /prometheusMetrics
